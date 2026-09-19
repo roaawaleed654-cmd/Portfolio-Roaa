@@ -537,23 +537,22 @@
 
     /* Real Image support inside placeholder frame */
     .hero-real-img {
-      position: absolute;
-      inset: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-       border-radius: 50%;
-       border: 3px solid var(--color-accent);
-      aspect-ratio: 1 / 1;
-      display: block !important;
+      position: absolute !important;
       width: 300px !important;
       height: 300px !important;
+      max-width: none !important;
+      max-height: none !important;
       left: 50% !important;
       top: 50% !important;
       inset: auto !important;
       transform: translate(-50%, -50%) !important;
+      object-fit: cover !important;
+      object-position: center center !important;
       border-radius: 50% !important;
-      clip-path: circle(50%) !important;
+      border: 3px solid var(--color-accent) !important;
+      clip-path: none !important;
+      display: block !important;
+      z-index: 1;
     }
 
     /* Floating Badges on the Hero Visual */
@@ -1736,7 +1735,63 @@
     clip-path: circle(50%) !important;
     border: 3px solid var(--color-accent) !important;
    }
+   /* Hide mobile menu on desktop */
+@media (min-width: 993px) {
+    .mobile-nav-drawer {
+        display: none !important;
+    }
+}
+
+.email-icon {
+    color: #EA4335 !important;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.email-icon:hover {
+    color: #EA4335 !important;
+    background: rgba(234, 67, 53, 0.12);
+    transform: scale(1.12);
+    box-shadow: 0 0 15px rgba(234, 67, 53, 0.25);
+}
+
+.email-icon svg {
+    stroke: currentColor;
+}
+
+.language-toggle {
+    width: 44px;
+    height: 44px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 50%;
+    background: var(--bg-surface);
+    color: var(--text-main);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.language-toggle:hover {
+    color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: scale(1.08);
+}
   </style>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  html[dir="rtl"] body { font-family: 'Cairo', 'Segoe UI', Tahoma, Arial, sans-serif; }
+  html[dir="rtl"] .about-bio { border-left: 0; border-right: 3px solid var(--color-primary); padding-left: 0; padding-right: 1.5rem; }
+  html[dir="rtl"] .timeline-container { padding-left: 0; padding-right: 2.5rem; }
+  html[dir="rtl"] .timeline-container::before { left: auto; right: 7px; }
+  html[dir="rtl"] .timeline-dot { left: auto; right: -2.5rem; }
+  html[dir="rtl"] .timeline-card:hover { transform: translateX(-8px) translateY(-4px); }
+  html[dir="rtl"] .skill-meter-fill { transform-origin: right; }
+  html[dir="rtl"] .project-link-btn:hover { transform: translateX(-4px); }
+  html[dir="rtl"] .nav-link::after { left: auto; right: 0; }
+  html[dir="rtl"] .hero-status-pill { align-self: flex-start; }
+  html[dir="rtl"] .section-tag { letter-spacing: 0; }
+</style>
 </head>
 <body>
 
@@ -1782,6 +1837,29 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
           </svg>
         </button>
+
+        <div class="nav-actions">
+
+    <button id="themeToggleBtn" class="theme-toggle-btn"
+            aria-label="Toggle light and dark mode"
+            title="Toggle theme">
+        ...
+    </button>
+
+    <button id="languageToggle"
+            class="language-toggle"
+            aria-label="Switch language"
+            title="Switch language">
+        AR
+    </button>
+
+    <button id="mobileMenuBtn" class="mobile-menu-btn"
+            aria-label="Open mobile menu"
+            aria-expanded="false">
+        ...
+    </button>
+
+</div>
 
         <button id="mobileMenuBtn" class="mobile-menu-btn" aria-label="Open mobile menu" aria-expanded="false">
           <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -1834,7 +1912,7 @@
                  1. Set .hero-real-img style="display:block;"
                  2. Change src="path/to/your-photo.jpg"
                  ============================================================= -->
-            <img src="assets\pg.jpg" id="heroPhoto" alt="Profile photo" style="display:block !important; width:100%; height:100%; object-fit:cover;">
+            <img src="assets/pg.jpg" id="heroPhoto" class="hero-real-img" alt="Profile photo">
             <!-- Default Placeholder Illustration & Guidance -->
             <div class="placeholder-art" aria-hidden="true">
               <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -2179,13 +2257,13 @@
             <div class="project-thumb-box">
 
              
-              <img class="project-real-img" src="assets/logo.jpg" alt="Project 1"> 
+              <img class="project-real-img" src="assets\اكسيسوريز.png" alt="Project 1"> 
             </div>
             <div class="project-body">
               <div>
                 <span class="project-category">BRANDING & LOGO DESIGN</span>
-                <h3 class="project-title">Sara Younis Skincare Identity</h3>
-                <p class="project-desc"> Elegant and minimal skincare brand identity featuring a delicate botanical logo, soft colors, and a refined visual style designed to communicate beauty and natural care.</p>
+                <h3 class="project-title">Mehab Makeup & Accessories</h3>
+                <p class="project-desc">A sophisticated beauty identity featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to express luxury and femininity.</p>
               </div>
               <div class="project-footer">
                 <!-- CUSTOMIZE URL HERE -->
@@ -2258,11 +2336,153 @@
               </div>
             </div>
           </article>
+            <!-- Project Card 3 -->
+
+           <!-- Project Card 4 -->
+          <!-- =============================================================
+               CUSTOMIZE HERE: PROJECT 4
+               ============================================================= -->
+          <article class="project-card">
+            <div class="project-thumb-box">
+              
+              <span class="project-thumb-placeholder-text">Project 4 Image Slot</span>
+              <span class="project-thumb-placeholder-sub">
+               <img class="project-real-img" src="assets\skinside.jpg" alt="Project 2"> 
+            </div>
+            <div class="project-body">
+              <div>
+                <span class="project-category">SOCIAL MEDIA AD DESIGN</span>
+                <h3 class="project-title">SKINSIDE Skincare Campaign</h3>
+                <p class="project-desc"> A modern skincare campaign designed to showcase the product through a clean, vibrant visual direction. The composition combines bold blue tones, soft lighting, product-focused imagery, and elegant Arabic typography to create a fresh and premium beauty aesthetic.</p>
+              </div>
+              <div class="project-footer">
+                <!-- CUSTOMIZE URL HERE -->
+                <a href="https://example.com/project-4" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Open project link">
+                  <span>View Project</span>
+                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project Card 4 -->
+     <!-- Project Card 5 -->
+<article class="project-card">
+
+    <div class="project-thumb-box">
+        <img class="project-real-img"
+             src="assets\برجر.png"
+             alt="Project 5">
+    </div>
+
+    <div class="project-body">
+
+        <div>
+            <span class="project-category">
+                SOCIAL MEDIA Ad DESIGN
+            </span>
+
+            <h3 class="project-title">
+                Burger Promotional Campaign
+            </h3>
+
+            <p class="project-desc">
+                A bold and appetizing food advertisement featuring strong typography, warm tones, and a dynamic product-focused composition designed to capture attention and highlight the offer.
+        </div>
+
+        <div class="project-footer">
+            <a href="#" class="project-link-btn">
+                <span>View Project</span>
+            </a>
+        </div>
+
+    </div>
+
+</article>
+
+<!-- Project Card 6 -->
+<article class="project-card">
+
+    <div class="project-thumb-box">
+        <img class="project-real-img"
+             src="assets\ايسكريم.png"
+             alt="Project 6">
+    </div>
+
+    <div class="project-body">
+
+        <div>
+            <span class="project-category">
+                SOCIAL MEDIA Ad DESIGN
+            </span>
+
+            <h3 class="project-title">
+               Strawberry Ice Cream Campaign
+            </h3>
+
+            <p class="project-desc">
+                A vibrant food advertisement combining bold typography, rich strawberry tones, and dynamic product composition to create a fresh and appetizing visual experience.
+            </p>
+        </div>
+
+        <div class="project-footer">
+            <a href="#" class="project-link-btn">
+                <span>View Project</span>
+            </a>
+        </div>
+
+    </div>
+
+</article>
+
+<!-- Project Card 7 -->
+<article class="project-card">
+
+    <div class="project-thumb-box">
+        <img class="project-real-img"
+             src="assets\luce 2.png"
+             alt="Project 6">
+    </div>
+
+    <div class="project-body">
+
+        <div>
+            <span class="project-category">
+               PRODUCT ADVERTISEMENT
+            </span>
+
+            <h3 class="project-title">
+               Luce Vitamin C Serum Campaign
+            </h3>
+
+            <p class="project-desc">
+               A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.
+            </p>
+        </div>
+
+        <div class="project-footer">
+            <a href="#" class="project-link-btn">
+                <span>View Project</span>
+            </a>
+        </div>
+
+    </div>
+
+</article>
+
+    </div> <!-- projects-grid -->
+
+  </div> <!-- container -->
+
+</section> <!-- projects -->
 
         </div>
 
       </div>
     </section>
+    
 
     <!-- ==========================================================================
          SECTION 6: SERVICES SECTION (6 Rounded-Rectangle Cards)
@@ -2527,7 +2747,7 @@
               </span>
               
               <div class="contact-phone-display">
-                <span id="phoneNumberText">01121570876</span>
+                <span id="phoneNumberText">WhatsApp</span>
                 <button id="copyPhoneBtn" class="copy-btn" title="Copy phone number">
                   <svg width="14" height="14" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
@@ -2551,14 +2771,22 @@
             <!-- Fallback Info Cards -->
             <div class="contact-methods">
               <div class="contact-method-item">
-                <div class="contact-method-icon">
-                  <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                </div>
+               <a href="https://mail.google.com/mail/?view=cm&fs=1&to=roaa.waleed.designs@gmail.com"
+   target="_blank"
+   class="contact-method-icon email-icon"
+   title="Send Email">
+
+    <svg width="20" height="20" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M3 8l9 6 9-6M5 5h14a2 2 0 012 2v10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2z"/>
+    </svg>
+
+</a>
                 <div class="contact-method-text">
                   <h4>Email Contact</h4>
-                  <p>roaa.waleed.design@example.com</p>
+                  <p>roaa.waleed.designs@gmail.com</p>
                 </div>
               </div>
 
@@ -2829,7 +3057,10 @@
       const type = document.getElementById('projectType').value.trim();
       const details = document.getElementById('messageBody').value.trim();
 
-      const textMessage = `Hello Roaa!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Project Type:* ${encodeURIComponent(type || 'General Inquiry')}%0A*Message:* ${encodeURIComponent(details)}`;
+      const isArabic = currentLanguage === 'ar';
+      const textMessage = isArabic
+        ? `مرحبًا روعة!%0A%0A*الاسم:* ${encodeURIComponent(name)}%0A*نوع المشروع:* ${encodeURIComponent(type || 'استفسار عام')}%0A*الرسالة:* ${encodeURIComponent(details)}`
+        : `Hello Roaa!%0A%0A*Name:* ${encodeURIComponent(name)}%0A*Project Type:* ${encodeURIComponent(type || 'General Inquiry')}%0A*Message:* ${encodeURIComponent(details)}`;
       const waUrl = `https://wa.me/${INTERNATIONAL_PHONE}?text=${textMessage}`;
       
       window.open(waUrl, '_blank');
@@ -2848,6 +3079,170 @@
       }).catch(err => {
         console.error('Clipboard copy failed: ', err);
       });
+    });
+
+
+    /* 9. Full Arabic / English Language Toggle */
+    const languageToggle = document.getElementById('languageToggle');
+    let currentLanguage = localStorage.getItem('portfolio_language') || 'en';
+
+    const translations = {
+      'Home':'الرئيسية','About':'عني','Experience':'خبرتي','Skills':'مهاراتي','Projects':'مشاريعي','Services':'خدماتي','Testimonials':'آراء العملاء','Contact':'تواصلي معايا',
+      'Hello, I’m':'أهلاً، أنا','I create as a':'بشتغل كمصممة','Available for Freelance & New Projects':'متاحة للفريلانس والمشاريع الجديدة','2+ Yrs Experience':'عندي أكتر من سنتين خبرة','5.0 Rating':'تقييم 5.0',
+      'Portrait Placeholder':'صورتي الشخصية','Replace with Roaa Waleed\'s high-res photo (Recommended: 800x1000px)':'حطي صورة واضحة وعالية الجودة لروعة وليد (يفضل مقاس 800×1000 بكسل)',
+      'Passionate visual creator blending refined graphic aesthetics with high-retention video editing. With two years of hands-on experience in logo design, promotional campaigns, and educational visual storytelling, I transform brand ideas into compelling, high-converting digital experiences.':'بحب أشتغل على التصميم والمونتاج، وبحاول دايمًا أخلي كل شغلانة ليها شكل مميز وواضح. عندي خبرة أكتر من سنتين في تصميم اللوجوهات والحملات الإعلانية والمحتوى البصري، وبحوّل فكرة البراند لتصميم يشد الانتباه ويكون ليه تأثير.',
+      'Chat on WhatsApp':'كلميني على واتساب','View Projects':'شوفي مشاريعي',
+      'About Me':'عني','Design Craft & Visual Philosophy':'ستايل التصميم ورؤيتي البصرية','A blend of structured artistic vision and rhythmic motion storytelling.':'بحب أخلط بين التصميم المرتب والحركة والإيقاع عشان أوصل الفكرة بشكل حلو وواضح.',
+      'With two years dedicated to visual identity development and dynamic video post-production, I specialize in shaping memorable brand personalities and high-retention social content. My workflow bridges conceptual logo systems with rhythmically synchronized video edits that capture attention and drive engagement. Dedicated to precision, typography balance, and modern pacing, I partner with creators and businesses to transform their vision into impactful visual stories.':'بقالي أكتر من سنتين شغالة على الهويات البصرية ومونتاج الفيديو. شغلي بيركز على اللوجوهات، محتوى السوشيال ميديا، والحملات الإعلانية، وبحب أخلي التصميم والمونتاج ماشيين مع بعض بشكل يخلي الفكرة توصل بسهولة. بهتم بالتفاصيل، اختيار الخطوط، والألوان، والإيقاع عشان أطلع شغل شكله مرتب واحترافي.',
+      'Years Experience':'سنين خبرة','Projects Completed':'مشروع مكتمل','Client Dedication':'بهمني رضا العميل','About Visual Placeholder':'مكان لصورتك','This slot is left intentionally open for your custom studio photo, moodboard, or workspace visual.':'المكان ده ينفع تحطي فيه صورة من شغلك، الاستوديو، الـmoodboard أو أي صورة مناسبة للبورتفوليو.',
+      'Career Milestones':'محطاتي في الشغل','Two Years of Creative Experience':'أكتر من سنتين خبرة في المجال','Dedicated work in logo design, promotional campaigns, and video editing.':'اشتغلت على لوجوهات، حملات إعلانية، ومونتاج فيديو لمشاريع مختلفة.',
+      'Logo Design & Brand Identity Specialist':'متخصصة في تصميم اللوجوهات والهوية البصرية','2 Years Experience':'خبرة أكتر من سنتين','Developed vector brand marks, typography guidelines, and educational visual kits. Crafted distinct visual identities for educational institutions, product launches, community awareness initiatives, and digital businesses.':'صممت لوجوهات وهويات بصرية كاملة، واشتغلت على الخطوط والـvisuals لمؤسسات تعليمية، إطلاق منتجات، حملات توعية، ومشاريع أونلاين.',
+      'Logo Design':'تصميم اللوجوهات','Educational Branding':'Branding تعليمي','Brand Guidelines':'Guidelines للهوية البصرية','Awareness Campaigns':'حملات توعية','Vector Graphics':'Vector Graphics',
+      'Video Editor & Creative Motion Designer':'محررة فيديو ومصممة موشن جرافيك','Produced high-engagement video content for product promotion, educational explainers, social media reels (TikTok/Instagram), and awareness videos. Specialized in sound synchronization, color correction, and dynamic graphic overlays.':'بعمل مونتاج لفيديوهات الإعلانات، الريلز، المحتوى التعليمي وفيديوهات التوعية. وبركز على مزامنة الصوت، الألوان، والـmotion عشان الفيديو يطلع حيوي ومشدود.',
+      'Product Promo Videos':'فيديوهات إعلانية للمنتجات','Social Media Reels':'ريلز للسوشيال ميديا','Sound Sync':'مزامنة الصوت','Color Grading':'تصحيح الألوان والـColor Grading','Dynamic Subtitles':'Subtitles متحركة',
+      'Digital Illustration & Social Media Creatives':'Digital Illustration وتصميم محتوى السوشيال ميديا','Designed cohesive social media grids, advertising carousels, and custom digital illustrations tailored to boost audience retention and communicate key educational messages effectively.':'بصمم بوستات، كاروسيل، ورسومات رقمية متناسقة للسوشيال ميديا، بحيث شكل الصفحة يبقى مرتب والفكرة توصل بسرعة.','Social Media Posts':'بوستات السوشيال ميديا','Digital Illustration':'Digital Illustration','Ad Creatives':'تصاميم إعلانية','Carousel Design':'تصميم كاروسيل',
+      'Core Competencies':'مهاراتي الأساسية','Six Key Design & Editing Skills':'أهم مهاراتي في التصميم والمونتاج','Carefully honed technical and creative abilities across the visual design spectrum.':'مجموعة مهارات بشتغل عليها باستمرار في التصميم والمونتاج وصناعة المحتوى البصري.',
+      'Logo Design & Branding':'اللوجوهات والهوية البصرية','Crafting memorable logos, custom visual emblems, typography hierarchy, and complete brand identity guidelines.':'بصمم لوجوهات مميزة وهوية بصرية كاملة، من الألوان والخطوط لحد كل التفاصيل اللي بتخلي البراند متماسك.',
+      'Video Editing & Motion':'مونتاج الفيديو والموشن','High-retention video cutting, seamless transitions, rhythm-matched B-roll, and engaging social reels.':'مونتاج سريع ومشدود، انتقالات ناعمة، لقطات B-roll راكبة على الإيقاع، وريلز مناسبة للسوشيال ميديا.',
+      'Custom vector graphics, concept artwork, character elements, and storytelling spot illustrations.':'بصمم Vector Graphics ورسومات مخصصة وعناصر للشخصيات ورسومات بتخدم فكرة المحتوى.','Social Media Creatives':'تصميم محتوى السوشيال ميديا','Attention-grabbing promotional posts, story templates, carousel spreads, and marketing ad banners.':'بوستات إعلانية، ستوريز، كاروسيل، وبانرات تسويقية بشكل يجذب العين.',
+      'Color Grading & Tone':'Color Grading والألوان','Cinematic color grading, lighting enhancement, white balance matching, and atmospheric mood creation.':'بظبط الألوان والإضاءة والـwhite balance عشان الفيديو يطلع بالمود والشكل اللي مناسب للفكرة.',
+      'Sound Design & Sync':'تصميم الصوت والمزامنة','Audio cleanup, sound effects layering (SFX), beat synchronization, and voiceover equalization.':'بظبط الصوت، أضيف المؤثرات، وأخلي الإيقاع والـvoice-over راكبين صح على الفيديو.',
+      'Featured Work':'من شغلي','Selected Projects':'مشاريع اخترتها من شغلي','A showcase of brand identity systems and promotional motion edits.':'هنا مجموعة من اللوجوهات والهويات البصرية وأعمال الموشن والمونتاج اللي اشتغلت عليها.',
+      'BRANDING & LOGO DESIGN':'Branding وتصميم اللوجوهات','Mehab Makeup & Accessories':'ميهاب ميك أب وإكسسوارات','A sophisticated beauty identity featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to express luxury and femininity.':'هوية بصرية لمجال الجمال، فيها مونوغرام بسيط وخطوط شيك وألوان عنابي وذهبي عشان تدي إحساس فاخر.',
+      'POSTER DESIGN & VISUAL ART':'تصميم بوستر وفن بصري','Steve Jobs Tribute Poster':'بوستر تكريمي لستيف جوبز','A bold editorial poster celebrating Steve Jobs through dramatic composition, geometric shapes, monochromatic tones, and striking typography inspired by his innovative legacy':'بوستر عن ستيف جوبز بتكوين جريء وأشكال هندسية وألوان أبيض وأسود وخطوط مستوحاة من أسلوبه المميز.',
+      'Social Media Awareness & ADVERTISING':'حملات وإعلانات السوشيال ميديا','Iced Coffee Social Campaign':'حملة قهوة مثلجة للسوشيال ميديا','A vibrant promotional advertisement designed to capture attention through rich coffee imagery, dynamic typography, glowing effects, and a refreshing summer-inspired visual style':'إعلان لقهوة مثلجة معمول بألوان دافية، تايبوجرافي واضحة، وإضاءة وحركة تخلي التصميم شكله منعش ويشد العين.',
+      'SOCIAL MEDIA AD DESIGN':'تصميم إعلانات للسوشيال ميديا','SKINSIDE Skincare Campaign':'حملة SKINSIDE للعناية بالبشرة','A modern skincare campaign designed to showcase the product through a clean, vibrant visual direction. The composition combines bold blue tones, soft lighting, product-focused imagery, and elegant Arabic typography to create a fresh and premium beauty aesthetic.':'حملة للعناية بالبشرة بألوان أزرق وإضاءة ناعمة، مع تركيز على المنتج وخط عربي شيك يخلي الشكل منعش وراقي.',
+      'SOCIAL MEDIA Ad DESIGN':'تصميم إعلانات للسوشيال ميديا','Burger Promotional Campaign':'حملة إعلان للبرجر','A bold and appetizing food advertisement featuring strong typography, warm tones, and a dynamic product-focused composition designed to capture attention and highlight the offer.':'إعلان برجر بألوان دافية وخطوط قوية وتركيبة تركز على الأكل والعرض عشان يشد الانتباه.',
+      'Strawberry Ice Cream Campaign':'حملة آيس كريم بالفراولة','A vibrant food advertisement combining bold typography, rich strawberry tones, and dynamic product composition to create a fresh and appetizing visual experience.':'إعلان آيس كريم بالفراولة بألوان فراولة واضحة وخطوط جريئة وتكوين يخلي المنتج باين وشهي.',
+      'PRODUCT ADVERTISEMENT':'إعلان منتج','Luce Vitamin C Serum Campaign':'حملة سيروم فيتامين C من Luce','A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.':'إعلان عصري وفاخر للعناية بالبشرة يعتمد على طابع أخضر أحادي اللون، ويجمع بين صور المنتج والتصوير بأسلوب الحياة والعناصر الترويجية النظيفة.',
+      'View Project':'عرض المشروع','Project 2 Image Slot':'مكان لصورة المشروع 2','Project 4 Image Slot':'مكان لصورة المشروع 4',
+      'Services & Tooling':'خدماتي والأدوات','Specialized Creative Services':'خدمات بقدمها','Tailored creative execution using industry-standard production software.':'بنفذ كل مشروع حسب احتياجه وباستخدم برامج التصميم والمونتاج المناسبة للشغل.',
+      'Creative Strategy':'فكرة واستراتيجية التصميم','Graphic Design':'Graphic Design','Complete visual design solutions including brand logos, print media, social assets, promotional banners, and marketing layout systems.':'حلول تصميم بصري متكاملة تشمل شعارات العلامات التجارية ومواد الطباعة ومحتوى السوشيال ميديا والبانرات الترويجية وأنظمة التخطيط التسويقي.',
+      'Short-Form Reels':'ريلز قصيرة','Snappy mobile-first video edits, viral pacing, trendy visual transitions, animated captions, and sound-effect syncing for TikTok and Instagram Reels.':'مونتاج سريع مخصص للموبايل، بإيقاع مناسب للمحتوى الرائج وانتقالات عصرية ونصوص متحركة ومزامنة للمؤثرات الصوتية على تيك توك وإنستجرام.',
+      'Image Manipulation':'تعديل ومعالجة الصور','Advanced photo compositing, portrait retouching, high-contrast YouTube thumbnails, lighting adjustments, and visual effects.':'تركيب وتعديل صور، رتوش، Thumbnails لليوتيوب، وتظبيط إضاءة ومؤثرات حسب المطلوب.',
+      'Vector Mastery':'Vector Graphics','Scalable vector logos, custom character illustration, icon libraries, typography design, and print-ready branding assets.':'لوجوهات Vector، رسومات شخصيات، أيقونات، خطوط، وعناصر هوية جاهزة للاستخدام والطباعة.',
+      'Rapid Prototyping':'تجهيزات سريعة','Accessible, client-ready brand templates, social media content batches, pitch deck layouts, and instant brand assets for non-designers.':'قوالب جاهزة للهوية، حزم محتوى للسوشيال ميديا، عروض تقديمية، وعناصر تقدر تستخدمها حتى لو مش مصمم.',
+      'Cinema Post-Production':'بوست برودكشن ومونتاج سينمائي','Comprehensive long-form video editing, multi-camera synchronization, professional color grading with Lumetri, and immersive sound design.':'مونتاج شامل للفيديوهات الطويلة ومزامنة متعددة الكاميرات وتدرج ألوان احترافي باستخدام Lumetri وتصميم صوتي غامر.',
+      'Client Feedback':'آراء العملاء','What People Say About My Work':'الناس بتقول إيه عن شغلي','Honest reviews from clients on logo design, illustration, and video editing projects.':'آراء من عملاء اشتغلت معاهم في اللوجوهات، Digital Illustration، والمونتاج.',
+      'Founder, EduGrow Academy':'مؤسس أكاديمية EduGrow','Marketing Director, NovaTech':'مدير التسويق في NovaTech','Content Lead, Wellness Hub':'مسؤول المحتوى في Wellness Hub','Digital Content Creator':'صانع محتوى رقمي','Brand Manager, Artisan Studio':'مدير العلامة التجارية في Artisan Studio','E-Commerce Brand Founder':'مؤسس علامة تجارية للتجارة الإلكترونية','Non-Profit Program Coordinator':'منسق برامج في مؤسسة غير ربحية',
+      'Previous testimonial':'التقييم اللي فات','Next testimonial':'التقييم اللي بعده',
+      'Let\'s Connect':'يلا نتكلم','Get In Touch':'تواصلي معايا','Reach out directly on WhatsApp for inquiries, project quotes, or collaborations.':'كلميني على واتساب لو عايزة تستفسري عن الأسعار أو نتكلم في مشروع أو تعاون.',
+      'Direct WhatsApp Contact':'تواصل مباشر على واتساب','WhatsApp':'واتساب','Copy':'انسخي الرقم','Copied!':'اتانسخي الرقم!','Available for direct client chat, quote inquiries, and project kickoffs. Tap below to launch WhatsApp instantly.':'متاح للتواصل مع العملاء، الاستفسار عن الأسعار وبدء أي مشروع. دوسي تحت عشان تفتحي واتساب على طول.','Open in WhatsApp':'افتحي واتساب',
+      'Email Contact':'الإيميل','Response Time':'وقت الرد','Typically replies within a few hours':'عادةً برد خلال كام ساعة','Send Email':'ابعتِ إيميل','Send a Quick Message':'ابعتِ رسالة سريعة','Type your project needs or choose a quick prompt to send directly via WhatsApp.':'اكتبي محتاجة إيه في مشروعك أو اختاري رسالة جاهزة وابعتها على واتساب.','Your Name':'اسمك','Project Type':'نوع المشروع','Quick Prompts':'اختيارات سريعة','Message Details':'تفاصيل الرسالة','Send Message via WhatsApp':'إبعتِي الرسالة على واتساب',
+      'Logo Design, Video Editing, Social Media':'مثال: لوجو، مونتاج فيديو، تصميم سوشيال ميديا','Describe your project, timeline, or requirements...':'احكيلي عن مشروعك، المدة المطلوبة وأي تفاصيل مهمة...','e.g. Sarah Miller':'مثال: سارة محمد',
+      'All rights reserved. Portfolio crafted with Anti-Gravity styling.':'كل الحقوق محفوظة. البورتفوليو معمول بأسلوب Anti-Gravity.',
+      'Go to testimonial 1':'روحي للتقييم 1','Go to testimonial 2':'روحي للتقييم 2','Go to testimonial 3':'روحي للتقييم 3','Go to testimonial 4':'روحي للتقييم 4','Go to testimonial 5':'روحي للتقييم 5','Go to testimonial 6':'روحي للتقييم 6','Go to testimonial 7':'روحي للتقييم 7',
+      'Toggle light and dark mode':'غيّري بين الوضع الفاتح والداكن','Toggle theme':'غيّري شكل الموقع','Open mobile menu':'افتحي قايمة الموبايل','Switch language':'غيّري اللغة','Switch to English':'رجوع للإنجليزي','Open project link':'افتحي رابط المشروع','Previous testimonial':'التقييم اللي فات','Next testimonial':'التقييم اللي بعده','5 out of 5 stars':'5 نجوم من 5',
+      '“Roaa designed the entire logo suite for our online academy. Her attention to typography and clean vector design gave our brand an instant professional leap. Delivered ahead of schedule!”':'روعة صممت لنا اللوجوهات كلها للأكاديمية. اختيارها للخطوط والتصميم كان ممتاز، وفرق جدًا في شكل البراند. كمان سلّمت الشغل قبل الميعاد!',
+      '“The promotional reels Roaa edited for our product launch achieved over 150K views on Instagram. The pacing, sound sync, and animated text overlays were absolutely world-class.”':'الريلز اللي روعة عملتلنا مونتاج ليها وقت إطلاق المنتج عدّت 150 ألف مشاهدة على إنستجرام. الإيقاع ومزامنة الصوت والنصوص المتحركة كانوا ممتازين.',
+      '“Collaborating with Roaa was seamless. She translated our vague concept into a vivid social media awareness campaign with custom illustrations that our audience deeply resonated with.”':'الشغل مع روعة كان مريح جدًا. أخدت الفكرة بتاعتنا وحولتها لحملة سوشيال ميديا حلوة وواضحة، والرسومات عملت تفاعل كبير مع الجمهور.',
+      '“Roaa has an innate sense of rhythm in video editing. She made our educational YouTube videos ten times more engaging by cutting dead air and adding subtle motion accents.”':'روعة فاهمة إيقاع المونتاج كويس جدًا. خلت فيديوهاتنا التعليمية على يوتيوب أمتع وأسهل في المشاهدة بحذف الحشو وإضافة لمسات موشن بسيطة.',
+      '“Her mastery of Illustrator and Photoshop is evident in every detail. She developed a complete set of branded Canva templates that our marketing team now uses daily with zero hassle.”':'شغل روعة على Illustrator وPhotoshop واضح في كل تفصيلة. كمان عملتلنا قوالب Canva كاملة للبراند، وفريق التسويق عندنا بيستخدمها كل يوم بسهولة.',
+      '“Fast turnarounds and extraordinary color grading. Roaa gave our product commercial video that high-end cinematic pop that impressed our investors immediately.”':'روعة سريعة جدًا في التسليم وكمان شغل الـColor Grading عندها مميز. خلت فيديو الإعلان يطلع بشكل سينمائي فخم وعجب المستثمرين من أول مرة.',
+      '“Working with Roaa on our awareness campaign was one of the smoothest creative experiences we’ve had. Attentive communication, sharp aesthetic taste, and 100% reliable.”':'اشتغلنا مع روعة في حملة توعية، والتجربة كانت سهلة جدًا من أولها لآخرها. تواصلها ممتاز، ذوقها حلو، ومواعيدها والتزامها فيهم ثقة.',
+      'Roaa Waleed. All rights reserved. Portfolio crafted with Anti-Gravity styling.':'روعة وليد. كل الحقوق محفوظة. البورتفوليو معمول بأسلوب Anti-Gravity.'
+    };
+
+    const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([en, ar]) => [ar, en]));
+    const arabicPrompts = [
+      'عايزة لوجو جديد وهوية بصرية كاملة لبراند بتاعي.',
+      'عايزة مونتاج لفيديوهات إعلانية وريلز.',
+      'عايزة تصميم بوستات ورسومات للسوشيال ميديا.',
+      'عندي مشروع تعليمي ومحتاجة محتوى بصري شكله حلو.'
+    ];
+    const englishPrompts = [
+      'I need a new logo & visual identity for my brand.',
+      'I need promotional video editing for reels & ads.',
+      'I need social media post graphics and illustration.',
+      'I have an educational project needing creative visual materials.'
+    ];
+
+    function translateTextNodes(root, dictionary) {
+      const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+      const nodes = [];
+      let node;
+      while (node = walker.nextNode()) nodes.push(node);
+      nodes.forEach(n => {
+        const trimmed = n.nodeValue.trim();
+        if (dictionary[trimmed]) {
+          n.nodeValue = n.nodeValue.replace(trimmed, dictionary[trimmed]);
+        }
+      });
+    }
+
+    function translateAttributes(dictionary) {
+      const attrs = ['placeholder','title','aria-label','alt'];
+      document.querySelectorAll('*').forEach(el => {
+        attrs.forEach(attr => {
+          const value = el.getAttribute(attr);
+          if (value && dictionary[value]) el.setAttribute(attr, dictionary[value]);
+        });
+      });
+    }
+
+    function setWhatsAppLanguage(lang) {
+      const isArabic = lang === 'ar';
+      const message = isArabic
+        ? 'أهلاً روعة!%0A%0Aعايزة أتكلم معاكي عن مشروع.'
+        : 'Hello%20Roaa,%20I\'d%20like%20to%20discuss%20a%20project!';
+      document.querySelectorAll('a[href*="wa.me"]').forEach(a => {
+        const base = a.href.split('?')[0];
+        a.href = `${base}?text=${message}`;
+      });
+    }
+
+    function setFormPromptLanguage(lang) {
+      document.querySelectorAll('.chip-prompt').forEach((btn, i) => {
+        btn.onclick = () => setPrompt(lang === 'ar' ? arabicPrompts[i] : englishPrompts[i]);
+      });
+    }
+
+    function applyLanguage(lang) {
+      if (lang === 'ar') {
+        translateTextNodes(document.body, translations);
+        translateAttributes(translations);
+        document.documentElement.lang = 'ar';
+        document.documentElement.dir = 'rtl';
+        languageToggle.textContent = 'EN';
+        languageToggle.setAttribute('aria-label', 'Switch to English');
+        languageToggle.setAttribute('title', 'Switch to English');
+        document.title = 'روعة وليد | مصممة جرافيك ومونتير فيديو';
+        document.querySelector('meta[name="description"]')?.setAttribute('content', 'بورتفوليو روعة وليد - مصممة جرافيك ومونتير فيديو، بقدم تصميم لوجوهات وهوية بصرية ومحتوى سوشيال ميديا وموشن.');
+      } else {
+        translateTextNodes(document.body, reverseTranslations);
+        translateAttributes(reverseTranslations);
+        document.documentElement.lang = 'en';
+        document.documentElement.dir = 'ltr';
+        languageToggle.textContent = 'AR';
+        languageToggle.setAttribute('aria-label', 'Switch language');
+        languageToggle.setAttribute('title', 'Switch language');
+        document.title = 'Roaa Waleed | Graphic Designer & Video Editor Portfolio';
+        document.querySelector('meta[name="description"]')?.setAttribute('content', 'Portfolio of Roaa Waleed - Senior Graphic Designer and Video Editor specializing in logos, social media visuals, motion graphics, and high-impact brand storytelling.');
+      }
+
+      // Typewriter phrases
+      typewriterPhrases.length = 0;
+      if (lang === 'ar') {
+        typewriterPhrases.push('مصممة جرافيك', 'محررة فيديو');
+      } else {
+        typewriterPhrases.push('graphic designer', 'video editor');
+      }
+      phraseIdx = 0; charIdx = 0; isDeleting = false;
+      typewriterEl.textContent = '';
+      setWhatsAppLanguage(lang);
+      setFormPromptLanguage(lang);
+      localStorage.setItem('portfolio_language', lang);
+    }
+
+    languageToggle?.addEventListener('click', () => {
+      currentLanguage = currentLanguage === 'en' ? 'ar' : 'en';
+      applyLanguage(currentLanguage);
+    });
+
+    // Apply saved language after the page is ready.
+    document.addEventListener('DOMContentLoaded', () => {
+      if (currentLanguage === 'ar') applyLanguage('ar');
+      else setFormPromptLanguage('en');
     });
 
     /* 8. Subtle Parallax Effect on Mouse Movement */
