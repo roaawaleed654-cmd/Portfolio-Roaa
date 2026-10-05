@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Project details and project gallery from Roaa Waleed's graphic design portfolio.">
+  <title>Project Details | Roaa Waleed</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --font-display: 'Outfit', sans-serif;
+      --font-body: 'Plus Jakarta Sans', sans-serif;
+      --transition: .35s cubic-bezier(.16,1,.3,1);
+      --radius-md: 16px;
+      --radius-lg: 24px;
+      --radius-xl: 32px;
+      --radius-full: 999px;
+    }
+    [data-theme="dark"] {
+      --primary: #4B70F5; --secondary: #4C3BCF; --accent: #3DC2EC;
+      --bg: #0c081e; --surface: rgba(26,18,54,.82); --elevated: rgba(48,36,99,.8);
+      --text: #F8FAFC; --muted: #CBD5E1; --subtle: #94A3B8;
+      --border: rgba(255,255,255,.10); --soft-border: rgba(75,112,245,.25);
+      --shadow: 0 24px 70px rgba(12,8,30,.55);
+    }
+    [data-theme="light"] {
+      --primary: #F29191; --secondary: #F7ADAD; --accent: #379596;
+      --bg: #FAF6F6; --surface: rgba(255,255,255,.9); --elevated: #fff;
+      --text: #1E2235; --muted: #3E465B; --subtle: #67718A;
+      --border: rgba(242,145,145,.22); --soft-border: rgba(242,145,145,.38);
+      --shadow: 0 24px 60px rgba(62,70,91,.10);
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; min-height:100vh; font-family:var(--font-body); background:var(--bg); color:var(--text); transition:background .35s ease,color .35s ease; }
+    body::before, body::after { content:""; position:fixed; width:460px; height:460px; border-radius:50%; filter:blur(90px); opacity:.35; pointer-events:none; z-index:-1; }
+    body::before { top:-120px; left:-120px; background:var(--secondary); }
+    body::after { right:-130px; bottom:-150px; background:var(--accent); }
+    a { color:inherit; text-decoration:none; }
+    .topbar { position:sticky; top:0; z-index:20; backdrop-filter:blur(18px); background:color-mix(in srgb, var(--surface) 88%, transparent); border-bottom:1px solid var(--border); }
+    .topbar-inner { max-width:1180px; margin:auto; padding:1rem 1.5rem; display:flex; align-items:center; justify-content:space-between; gap:1rem; }
+    .brand { display:flex; align-items:center; gap:.7rem; font-family:var(--font-display); font-weight:800; }
+    .brand-badge { width:40px; height:40px; display:grid; place-items:center; border-radius:12px; background:linear-gradient(135deg,var(--primary),var(--accent)); color:#fff; }
+    .top-actions { display:flex; align-items:center; gap:.75rem; }
+    .icon-btn { width:42px; height:42px; border-radius:50%; border:1px solid var(--soft-border); background:var(--elevated); color:var(--text); cursor:pointer; display:grid; place-items:center; }
+    .back-btn { display:inline-flex; align-items:center; gap:.55rem; padding:.7rem 1rem; border-radius:var(--radius-full); border:1px solid var(--soft-border); background:var(--elevated); font-weight:700; font-size:.9rem; }
+    main { max-width:1180px; margin:auto; padding:4.5rem 1.5rem 6rem; }
+    .hero { display:grid; grid-template-columns:1.05fr 1fr; gap:3.5rem; align-items:center; margin-bottom:3.5rem; }
+    .eyebrow { display:inline-flex; gap:.5rem; align-items:center; padding:.35rem .85rem; border:1px solid var(--soft-border); background:rgba(75,112,245,.08); color:var(--accent); border-radius:var(--radius-full); font-size:.78rem; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
+    h1 { font:700 clamp(2.4rem,5vw,4.25rem)/1.05 var(--font-display); margin:1rem 0; letter-spacing:-.03em; }
+    .gradient { background:linear-gradient(135deg,var(--primary),var(--accent)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+    .description { color:var(--muted); font-size:1.04rem; line-height:1.8; max-width:690px; }
+    .hero-card { border:1px solid var(--border); border-radius:var(--radius-xl); background:var(--surface); box-shadow:var(--shadow); padding:1rem; }
+    .hero-image-wrap { aspect-ratio:4/3; border-radius:22px; overflow:hidden; background:linear-gradient(135deg,rgba(75,112,245,.15),rgba(61,194,236,.08)); position:relative; }
+    .hero-image { width:100%; height:100%; object-fit:contain; display:block; }
+    .placeholder { position:absolute; inset:0; display:grid; place-items:center; align-content:center; text-align:center; gap:.3rem; color:var(--subtle); background:radial-gradient(circle at 50% 35%,rgba(75,112,245,.18),transparent 55%); padding:1.5rem; }
+    .placeholder.hidden { display:none; }
+    .placeholder .box { width:68px; height:68px; border-radius:20px; display:grid; place-items:center; border:1px solid var(--soft-border); background:var(--elevated); color:var(--accent); font-size:2.2rem; margin-bottom:.35rem; }
+    .gallery-head { display:flex; align-items:end; justify-content:space-between; gap:1rem; margin-bottom:1.5rem; }
+    .gallery-head h2 { margin:0; font:700 2rem/1.2 var(--font-display); }
+    .gallery-note { color:var(--subtle); font-size:.9rem; }
+    .gallery { display:grid; grid-template-columns:repeat(12,1fr); gap:1.25rem; }
+    .gallery-item { grid-column:span 6; background:var(--surface); border:1px solid var(--border); border-radius:22px; padding:.7rem; box-shadow:0 10px 32px rgba(12,8,30,.16); overflow:hidden; }
+    .gallery-item:nth-child(3n+1) { grid-column:span 7; }
+    .gallery-item:nth-child(3n+2) { grid-column:span 5; }
+    .gallery-item img { width:100%; aspect-ratio:4/3; object-fit:contain; display:block; border-radius:16px; background:rgba(127,127,127,.08); }
+    .gallery-item .gallery-placeholder { aspect-ratio:4/3; display:grid; place-items:center; text-align:center; padding:1rem; color:var(--subtle); border-radius:16px; background:rgba(127,127,127,.06); }
+    .empty { padding:2.5rem; text-align:center; border:1px dashed var(--soft-border); border-radius:24px; color:var(--muted); background:var(--surface); }
+    .footer-actions { display:flex; justify-content:center; margin-top:3rem; }
+    @media (max-width:850px) { .hero { grid-template-columns:1fr; } .hero-card { max-width:680px; margin:auto; width:100%; } .gallery-item,.gallery-item:nth-child(3n+1),.gallery-item:nth-child(3n+2) { grid-column:span 12; } .gallery-head { align-items:start; flex-direction:column; } }
+    @media (max-width:560px) { .topbar-inner { padding-inline:1rem; } main { padding-inline:1rem; padding-top:3rem; } .brand span:last-child { display:none; } .back-btn span { display:none; } }
+    html[dir="rtl"] body { font-family:'Cairo',Tahoma,Arial,sans-serif; }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="index.html#projects" aria-label="Back to portfolio">
+        <span class="brand-badge">RW</span>
+        <span>Roaa Waleed</span>
+      </a>
+      <div class="top-actions">
+        <a class="back-btn" id="backBtn" href="index.html#projects" aria-label="Back to portfolio">
+          <span aria-hidden="true">←</span><span id="backLabel">Back to Portfolio</span>
+        </a>
+        <button class="icon-btn" id="langBtn" type="button" aria-label="Switch language">AR</button>
+        <button class="icon-btn" id="themeBtn" type="button" aria-label="Toggle light and dark mode">◐</button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="projectTitle">
+      <div>
+        <span class="eyebrow" id="projectCategory">Project</span>
+        <h1 id="projectTitle">Project</h1>
+        <p class="description" id="projectDescription"></p>
+      </div>
+      <div class="hero-card">
+        <div class="hero-image-wrap">
+          <img id="heroImage"
+     class="hero-image"
+     src="assets\ايسكريم.png"
+     alt="FEROZ Ice Cream">
+        </div>
+      </div>
+    </section>
+
+    <section aria-labelledby="galleryTitle">
+      <div class="gallery-head">
+        <div>
+          <span class="eyebrow">Project Gallery</span>
+          <h2 id="galleryTitle">All Related Images</h2>
+        </div>
+        <div class="gallery-note" id="galleryNote"></div>
+      </div>
+      <div id="gallery" class="gallery"></div>
+    </section>
+
+    <div class="footer-actions">
+      <a class="back-btn" href="index.html#projects"><span aria-hidden="true">←</span><span>Back to Portfolio</span></a>
+    </div>
+  </main>
+
+  <script>
+    const projects = {
+      mehab: {
+        category: 'BRANDING & LOGO DESIGN', title: 'Mehab Makeup & Accessories',
+        description: 'A sophisticated beauty identity featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to express luxury and femininity.',
+        images: ['assets/اكسيسوريز.png']
+      },
+      'logo-02': {
+        category: 'BRANDING & LOGO DESIGN', title: 'AldenAire Perfume Brand Identity',
+        description: 'A premium perfume branding project featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to communicate luxury and sophistication.',
+        images: ['assets/logo a.jpg', 'assets/AldenAire موك اب.jpg']
+      },
+      'logo-03': {
+        category: 'BRANDING & LOGO DESIGN', title: 'Kayan Perfume Brand Identity',
+        description: 'A minimalist perfume branding project centered around an elegant Arabic logo, balanced typography, and a refined color palette that gives the brand a sophisticated and distinctive character.',
+        images: ['assets/logo k.jpg', 'assets/كيان موك اب.jpg']
+      },
+      'steve-jobs': {
+        category: 'POSTER DESIGN & VISUAL ART', title: 'Steve Jobs Tribute Poster',
+        description: 'A bold editorial poster celebrating Steve Jobs through dramatic composition, geometric shapes, monochromatic tones, and striking typography inspired by his innovative legacy.',
+        images: ['assets/steve.png']
+      },
+      'iced-coffee': {
+        category: 'SOCIAL MEDIA AWARENESS & ADVERTISING', title: 'Iced Coffee Social Campaign',
+        description: 'A vibrant promotional advertisement designed to capture attention through rich coffee imagery, dynamic typography, glowing effects, and a refreshing summer-inspired visual style.',
+        images: ['assets/كوفي.png', 'assets/coffee 2.png', 'assets/coffee 3.png', 'assets/coffee 4.png']
+      },
+      skinside: {
+        category: 'SOCIAL MEDIA AD DESIGN', title: 'SKINSIDE Skincare Campaign',
+        description: 'A modern skincare campaign designed to showcase the product through a clean, vibrant visual direction with bold blue tones, soft lighting, product-focused imagery, and elegant Arabic typography.',
+        images: ['assets/skinside.jpg', 'assets/skinside2.png', 'assets/skinside3.png', 'assets/skinside4.png']
+      },
+      burger: {
+        category: 'SOCIAL MEDIA AD DESIGN', title: 'Burger Full Promotional Campaign',
+        description: 'A full burger promotion campaign featuring the complete set of burger campaign assets.',
+        images: ['assets/برجر توب.png', 'assets/برجر.png', 'assets/برجر 1.png', 'assets/برجر 2.png', 'assets/برجر 3.png', 'assets/برجر 4.png', 'assets/برجر 5.png']
+      },
+      'ice-cream': {
+        category: 'SOCIAL MEDIA POST DESIGN', title: 'FEROZ Ice Cream Flavor Series',
+        description: 'A complete FEROZ ice cream social campaign featuring the main artwork and every flavor image available in the assets folder.',
+        images: [
+          'assets/FEROZ Strawberry.png',
+          'assets/FEROZ_ceCream.png',
+          'assets/FEROZ Chocolate.png',
+          'assets/FEROZ Mango.png',
+          'assets/FEROZ Pistachio.png',
+          'assets/FEROZ Vanilla.png'
+        ]
+      },
+      luce: {
+        category: 'PRODUCT ADVERTISEMENT', title: 'Luce Vitamin C Serum Campaign',
+        description: 'A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.',
+        images: [
+          'assets/luce 1.png',
+          'assets/luce 2.jpg',
+          'assets/luce 3.jpg',
+          'assets/luce 4.jpg',
+          'assets/luce 5.jpg'
+        ]
+      },
+      'social-02': {
+        category: 'SOCIAL MEDIA POST DESIGN', title: 'Delivery Service Campaign',
+        description: 'A social media campaign built around delivery-focused promotional posts, clear messaging, and a consistent visual system.',
+        images: ['assets/توصيل توب.png', 'assets/توصيل 1.png', 'assets/توصيل 2.png', 'assets/توصيل 3.png', 'assets/توصيل 4.png', 'assets/توصيل 5.png']
+      },
+      'social-03': {
+        category: 'SOCIAL MEDIA POST DESIGN', title: 'Real Estate Social Campaign',
+        description: 'A real estate social media campaign combining property-focused visuals, promotional layouts, and a consistent advertising direction.',
+        images: ['assets/عقاري توب.png', 'assets/عقاري.png', 'assets/عقاري 2.png', 'assets/عقاري 3.png', 'assets/عقاري 4.png']
+      },
+      dental: {
+        category: 'SOCIAL MEDIA POST DESIGN', title: 'Dental Clinic Social Media Campaign',
+        description: 'A clean and premium dental clinic campaign using fresh teal tones, warm lifestyle imagery, strong Arabic typography, and educational promotional compositions designed for social media.',
+        images: ['assets/اسنان 2.png', 'assets/اسنان 3.png', 'assets/اسنان 4.png', 'assets/اسنان 5.png', 'assets/اسنان 6.png']
+      }
+    };
+
+    const translations = {
+      'Project': 'مشروع',
+      'Project Details | Roaa Waleed': 'تفاصيل المشروع | روعة وليد',
+      'Project preview': 'معاينة المشروع',
+      'Project Image Slot': 'مكان صورة المشروع',
+      'Add the project preview image in the configured assets path.': 'ضيفي صورة المشروع في مسار الـassets المخصص.',
+      'Project Gallery': 'صور المشروع',
+      'All Related Images': 'كل الصور المرتبطة بالمشروع',
+      'Back to Portfolio': 'الرجوع للبورتفوليو',
+      'BRANDING & LOGO DESIGN': 'تصميم اللوجو والهوية البصرية',
+      'POSTER DESIGN & VISUAL ART': 'تصميم بوستر وفن بصري',
+      'SOCIAL MEDIA AWARENESS & ADVERTISING': 'حملات وإعلانات السوشيال ميديا',
+      'SOCIAL MEDIA AD DESIGN': 'تصميم إعلانات للسوشيال ميديا',
+      'SOCIAL MEDIA POST DESIGN': 'تصميم بوستات للسوشيال ميديا',
+      'PRODUCT ADVERTISEMENT': 'إعلان منتج',
+      'Mehab Makeup & Accessories': 'ميهاب ميك أب وإكسسوارات',
+      'A sophisticated beauty identity featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to express luxury and femininity.': 'هوية بصرية لمجال الجمال، فيها مونوغرام بسيط وخطوط شيك وألوان عنابي وذهبي عشان تدي إحساس فاخر.',
+      'AldenAire Perfume Brand Identity': 'هوية بصرية لبراند AldenAire للعطور',
+      'Kayan Perfume Brand Identity': 'هوية بصرية لبراند كيان للعطور',
+      'A premium perfume branding project featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to communicate luxury and sophistication.': 'مشروع براند عطور فاخر، فيه مونوغرام مميز وخطوط أنيقة وألوان عنابي وذهبي تدي إحساس بالفخامة والرقي.',
+      'A minimalist perfume branding project centered around an elegant Arabic logo, balanced typography, and a refined color palette that gives the brand a sophisticated and distinctive character.': 'مشروع هوية بصرية لبراند عطور بيعتمد على لوجو عربي أنيق وتايبوجرافي متوازنة وألوان هادية تدي البراند شكل راقي ومميز.',
+      'Steve Jobs Tribute Poster': 'بوستر تكريمي لستيف جوبز',
+      'A bold editorial poster celebrating Steve Jobs through dramatic composition, geometric shapes, monochromatic tones, and striking typography inspired by his innovative legacy.': 'بوستر عن ستيف جوبز بتكوين جريء وأشكال هندسية وألوان أبيض وأسود وخطوط مستوحاة من أسلوبه المميز.',
+      'Iced Coffee Social Campaign': 'حملة قهوة مثلجة للسوشيال ميديا',
+      'A vibrant promotional advertisement designed to capture attention through rich coffee imagery, dynamic typography, glowing effects, and a refreshing summer-inspired visual style.': 'إعلان لقهوة مثلجة معمول بألوان دافية، تايبوجرافي واضحة، وإضاءة وحركة تخلي التصميم شكله منعش ويشد العين.',
+      'SKINSIDE Skincare Campaign': 'حملة SKINSIDE للعناية بالبشرة',
+      'A modern skincare campaign designed to showcase the product through a clean, vibrant visual direction with bold blue tones, soft lighting, product-focused imagery, and elegant Arabic typography.': 'حملة للعناية بالبشرة بألوان أزرق وإضاءة ناعمة، مع تركيز على المنتج وخط عربي شيك يخلي الشكل منعش وراقي.',
+      'Burger Full Promotional Campaign': 'حملة برجر ترويجية كاملة',
+      'A full burger promotion campaign featuring the complete set of burger campaign assets.': 'حملة برجر كاملة فيها كل البوستات وصور الأكل بشكل شهي وتصميمات ترويجية قوية تلفت الانتباه.',
+      'FEROZ Ice Cream Flavor Series': 'سلسلة نكهات آيس كريم FEROZ',
+      'A complete FEROZ ice cream social campaign featuring the main artwork and every flavor image available in the assets folder.': 'حملة آيس كريم FEROZ كاملة فيها التصميم الأساسي وكل صور النكهات الموجودة في الـassets.',
+      'Luce Vitamin C Serum Campaign': 'حملة سيروم فيتامين C من Luce',
+      'A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.': 'إعلان شيك وفاخر للعناية بالبشرة بطابع أخضر متناسق، فيه تركيز على المنتج وصور لايف ستايل وعناصر ترويجية بسيطة.',
+      'Delivery Service Campaign': 'حملة خدمة التوصيل',
+      'A social media campaign built around delivery-focused promotional posts, clear messaging, and a consistent visual system.': 'حملة سوشيال ميديا لخدمة التوصيل، فيها بوستات ترويجية واضحة وستايل بصري متناسق.',
+      'Real Estate Social Campaign': 'حملة عقارية للسوشيال ميديا',
+      'A real estate social media campaign combining property-focused visuals, promotional layouts, and a consistent advertising direction.': 'حملة عقارية للسوشيال ميديا بتجمع بين صور العقارات وتصميمات ترويجية وستايل إعلاني موحّد.',
+      'Dental Clinic Social Media Campaign': 'حملة سوشيال ميديا لعيادة أسنان',
+      'A clean and premium dental clinic campaign using fresh teal tones, warm lifestyle imagery, strong Arabic typography, and educational promotional compositions designed for social media.': 'حملة سوشيال ميديا لعيادة أسنان بشكل نضيف وراقي، بألوان تركواز هادية، وصور لايف ستايل، وخط عربي واضح، وتصميمات توعوية وترويجية للسوشيال ميديا.'
+    };
+    const reverseTranslations = Object.fromEntries(Object.entries(translations).map(([en, ar]) => [ar, en]));
+
+    const params = new URLSearchParams(window.location.search);
+    const key = params.get('project') || 'mehab';
+    const project = projects[key] || projects.mehab;
+    let currentLanguage = localStorage.getItem('portfolio_language') || 'en';
+    let loaded = 0;
+
+    function tr(text) {
+      return currentLanguage === 'ar' ? (translations[text] || text) : text;
+    }
+
+    function projectText(field) {
+      const value = project[field];
+      return tr(value);
+    }
+
+    function renderProjectHeader() {
+      document.title = `${projectText('title')} | Roaa Waleed`;
+      document.documentElement.lang = currentLanguage;
+      document.documentElement.dir = currentLanguage === 'ar' ? 'rtl' : 'ltr';
+      document.getElementById('projectCategory').textContent = projectText('category');
+      document.getElementById('projectTitle').textContent = projectText('title');
+      document.getElementById('projectDescription').textContent = projectText('description');
+      document.getElementById('backLabel').textContent = tr('Back to Portfolio');
+      document.getElementById('backBtn').setAttribute('aria-label', tr('Back to Portfolio'));
+      document.getElementById('langBtn').textContent = currentLanguage === 'ar' ? 'EN' : 'AR';
+      document.getElementById('langBtn').setAttribute('aria-label', currentLanguage === 'ar' ? 'Switch to English' : 'Switch to Arabic');
+      document.getElementById('langBtn').setAttribute('title', currentLanguage === 'ar' ? 'Switch to English' : 'Switch to Arabic');
+      document.getElementById('themeBtn').setAttribute('aria-label', tr('Toggle light and dark mode'));
+      document.querySelector('.gallery-head .eyebrow').textContent = tr('Project Gallery');
+      document.getElementById('galleryTitle').textContent = tr('All Related Images');
+    }
+
+    const hero = document.getElementById('heroImage');
+    hero.src = project.images[0] || '';
+    hero.alt = `${project.title} preview`;
+    hero.addEventListener('error', () => { hero.style.display='none'; });
+    hero.addEventListener('load', () => { hero.style.display='block'; });
+
+    const gallery = document.getElementById('gallery');
+    const galleryNote = document.getElementById('galleryNote');
+    function updateGalleryNote() {
+      galleryNote.textContent = currentLanguage === 'ar'
+        ? `${loaded} ${loaded === 1 ? 'صورة' : 'صور'} اتفتحت`
+        : `${loaded} ${loaded === 1 ? 'image' : 'images'} loaded`;
+    }
+
+    project.images.forEach((src, index) => {
+      const item = document.createElement('article');
+      item.className = 'gallery-item';
+
+      const img = document.createElement('img');
+      img.src = src;
+      img.alt = `${project.title} — image ${index + 1}`;
+      img.loading = 'lazy';
+
+      img.addEventListener('load', () => {
+        loaded++;
+        updateGalleryNote();
+      });
+
+      img.addEventListener('error', () => {
+        item.remove();
+        updateGalleryNote();
+      });
+
+      item.appendChild(img);
+      gallery.appendChild(item);
+    });
+
+    if (!project.images.length) {
+      gallery.innerHTML = currentLanguage === 'ar'
+        ? '<div class="empty">لسه مفيش صور مضافة للمشروع ده.</div>'
+        : '<div class="empty">No images have been assigned to this project yet.</div>';
+    }
+
+    const root = document.documentElement;
+    const savedTheme = localStorage.getItem('portfolio_theme') || 'dark';
+    root.dataset.theme = savedTheme;
+    document.getElementById('themeBtn').addEventListener('click', () => {
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('portfolio_theme', next);
+    });
+
+    document.getElementById('langBtn').addEventListener('click', () => {
+      currentLanguage = currentLanguage === 'ar' ? 'en' : 'ar';
+      localStorage.setItem('portfolio_language', currentLanguage);
+      renderProjectHeader();
+      updateGalleryNote();
+      document.querySelectorAll('.gallery-placeholder').forEach((el, i) => {
+        const src = project.images[i];
+        el.textContent = currentLanguage === 'ar'
+          ? `صورة رقم ${i + 1} — ضيفيها: ${src}`
+          : `Image ${i + 1} slot — add: ${src}`;
+      });
+    });
+
+    renderProjectHeader();
+    updateGalleryNote();
+  </script>
+</body>
+</html>

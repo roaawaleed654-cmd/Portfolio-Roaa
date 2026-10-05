@@ -850,7 +850,7 @@
     }
 
     /* ==========================================================================
-       3. EXPERIENCE SECTION (2 Years Timeline)
+       3. EXPERIENCE SECTION (More Than 3 Years Timeline)
        ========================================================================== */
     .timeline-container {
       position: relative;
@@ -1043,6 +1043,88 @@
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
       gap: 2.25rem;
+    }
+
+    .project-group {
+      margin-top: 4.5rem;
+    }
+
+    /* Keep every project card the same size, including single-project groups. */
+    .project-group .projects-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .project-group:first-of-type {
+      margin-top: 0;
+    }
+
+    .project-group-heading {
+      display: flex;
+      align-items: center;
+      gap: 0.85rem;
+      margin-bottom: 1.75rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--border-card);
+    }
+
+    .project-group-heading h3 {
+      font-size: clamp(1.25rem, 2.5vw, 1.65rem);
+      margin: 0;
+    }
+
+    .project-group-kicker {
+      min-width: 38px;
+      height: 28px;
+      display: inline-grid;
+      place-items: center;
+      border-radius: var(--radius-full);
+      background: var(--bg-glass);
+      border: 1px solid var(--border-subtle);
+      color: var(--color-accent);
+      font-size: 0.75rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+
+    .project-placeholder-media {
+      position: absolute;
+      inset: 0;
+      display: none;
+      place-items: center;
+      align-content: center;
+      gap: 0.25rem;
+      background: radial-gradient(circle at 50% 40%, rgba(var(--color-primary-rgb), 0.18), transparent 58%), var(--bg-glass);
+      color: var(--text-muted);
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .project-placeholder-media.show {
+      display: grid;
+    }
+
+    .project-placeholder-icon {
+      width: 58px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      background: var(--bg-surface-elevated);
+      border: 1px solid var(--border-subtle);
+      color: var(--color-accent);
+      font-size: 2rem;
+      margin-bottom: 0.35rem;
+    }
+
+    .project-placeholder-media strong {
+      font-size: 0.92rem;
+      color: var(--text-main);
+    }
+
+    .project-placeholder-media span {
+      font-size: 0.78rem;
+      color: var(--text-subtle);
+      max-width: 210px;
     }
 
     .project-card {
@@ -1647,6 +1729,9 @@
        RESPONSIVE BREAKPOINTS
        ========================================================================== */
     @media (max-width: 992px) {
+      .project-group .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .hero-grid,
       .about-grid,
       .contact-grid {
@@ -1698,6 +1783,10 @@
     }
 
     @media (max-width: 640px) {
+      .project-group .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
       section {
         padding: 4rem 0;
       }
@@ -1897,7 +1986,7 @@
             <!-- Floating Badge: Experience -->
             <div class="floating-chip chip-exp">
               <span>✨</span>
-              <span>2+ Yrs Experience</span>
+              <span>More than 3 Years Experience</span>
             </div>
 
             <!-- Floating Badge: Client Rating -->
@@ -1944,7 +2033,7 @@
 
           <!-- Bio Text (Up to 6 lines maximum) -->
           <p class="hero-bio">
-            Passionate visual creator blending refined graphic aesthetics with high-retention video editing. With two years of hands-on experience in logo design, promotional campaigns, and educational visual storytelling, I transform brand ideas into compelling, high-converting digital experiences.
+            Passionate visual creator blending refined graphic aesthetics with high-retention video editing. With more than three years of hands-on experience in logo design, promotional campaigns, and educational visual storytelling, I transform brand ideas into compelling, high-converting digital experiences.
           </p>
 
           <!-- CTAs -->
@@ -1990,13 +2079,13 @@
                  Up to 6 lines maximum as requested.
                  ============================================================= -->
             <p class="about-bio">
-              With two years dedicated to visual identity development and dynamic video post-production, I specialize in shaping memorable brand personalities and high-retention social content. My workflow bridges conceptual logo systems with rhythmically synchronized video edits that capture attention and drive engagement. Dedicated to precision, typography balance, and modern pacing, I partner with creators and businesses to transform their vision into impactful visual stories.
+              With more than three years dedicated to visual identity development and dynamic video post-production, I specialize in shaping memorable brand personalities and high-retention social content. My workflow bridges conceptual logo systems with rhythmically synchronized video edits that capture attention and drive engagement. Dedicated to precision, typography balance, and modern pacing, I partner with creators and businesses to transform their vision into impactful visual stories.
             </p>
 
             <!-- Quick Stats -->
             <div class="about-stats">
               <div class="stat-card">
-                <div class="stat-number">2+</div>
+                <div class="stat-number">3+</div>
                 <div class="stat-label">Years Experience</div>
               </div>
               <div class="stat-card">
@@ -2032,14 +2121,14 @@
     </section>
 
     <!-- ==========================================================================
-         SECTION 3: EXPERIENCE SECTION (2 Years Timeline)
+         SECTION 3: EXPERIENCE SECTION (More Than 3 Years Timeline)
          ========================================================================== -->
     <section id="experience" class="experience-section">
       <div class="container">
         
         <div class="section-header">
           <span class="section-tag">Career Milestones</span>
-          <h2 class="section-title">Two Years of Creative Experience</h2>
+          <h2 class="section-title">More Than 3 Years of Creative Experience</h2>
           <p class="section-subtitle">Dedicated work in logo design, promotional campaigns, and video editing.</p>
         </div>
 
@@ -2051,7 +2140,7 @@
             <div class="timeline-card">
               <div class="timeline-header">
                 <h3 class="timeline-role">Logo Design & Brand Identity Specialist</h3>
-                <span class="timeline-period">2 Years Experience</span>
+                <span class="timeline-period">More than 3 Years Experience</span>
               </div>
               <p class="timeline-body">
                 Developed vector brand marks, typography guidelines, and educational visual kits. Crafted distinct visual identities for educational institutions, product launches, community awareness initiatives, and digital businesses.
@@ -2072,7 +2161,7 @@
             <div class="timeline-card">
               <div class="timeline-header">
                 <h3 class="timeline-role">Video Editor & Creative Motion Designer</h3>
-                <span class="timeline-period">2 Years Experience</span>
+                <span class="timeline-period">More than 3 Years Experience</span>
               </div>
               <p class="timeline-body">
                 Produced high-engagement video content for product promotion, educational explainers, social media reels (TikTok/Instagram), and awareness videos. Specialized in sound synchronization, color correction, and dynamic graphic overlays.
@@ -2093,7 +2182,7 @@
             <div class="timeline-card">
               <div class="timeline-header">
                 <h3 class="timeline-role">Digital Illustration & Social Media Creatives</h3>
-                <span class="timeline-period">2 Years Experience</span>
+                <span class="timeline-period">More than 3 Years Experience</span>
               </div>
               <p class="timeline-body">
                 Designed cohesive social media grids, advertising carousels, and custom digital illustrations tailored to boost audience retention and communicate key educational messages effectively.
@@ -2233,256 +2322,158 @@
       </div>
     </section>
 
-    <!-- ==========================================================================
-         SECTION 5: PROJECTS SECTION (3 Project Cards)
-         ========================================================================== -->
+    <!-- ========================================================================
+         SECTION 5: PROJECTS
+         ======================================================================== -->
     <section id="projects" class="projects-section">
       <div class="container">
-        
+
         <div class="section-header">
           <span class="section-tag">Featured Work</span>
           <h2 class="section-title">Selected Projects</h2>
-          <p class="section-subtitle">A showcase of brand identity systems and promotional motion edits.</p>
+          <p class="section-subtitle">A showcase of brand identities, visual design, social media campaigns, and advertising work.</p>
         </div>
 
-        <div class="projects-grid">
-          
-          <!-- Project Card 1 -->
-          <!-- =============================================================
-               CUSTOMIZE HERE: PROJECT 1
-               - Replace project image inside .project-thumb-box
-               - Update project title, description, and link URL below
-               ============================================================= -->
-          <article class="project-card">
-            <div class="project-thumb-box">
+        <!-- LOGOS -->
+        <div class="project-group">
+          <div class="project-group-heading">
+            <span class="project-group-kicker">01</span>
+            <h3>Logos &amp; Brand Identity</h3>
+          </div>
+          <div class="projects-grid">
 
-             
-              <img class="project-real-img" src="assets\اكسيسوريز.png" alt="Project 1"> 
-            </div>
-            <div class="project-body">
-              <div>
-                <span class="project-category">BRANDING & LOGO DESIGN</span>
-                <h3 class="project-title">Mehab Makeup & Accessories</h3>
-                <p class="project-desc">A sophisticated beauty identity featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to express luxury and femininity.</p>
+            <article class="project-card">
+              <div class="project-thumb-box">
+                <img class="project-real-img" src="assets/اكسيسوريز.png" alt="Mehab Makeup & Accessories">
               </div>
-              <div class="project-footer">
-                <!-- CUSTOMIZE URL HERE -->
-                <a href="https://example.com/project-1" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Open project link">
-                  <span>View Project</span>
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
+              <div class="project-body">
+                <div>
+                  <span class="project-category">BRANDING &amp; LOGO DESIGN</span>
+                  <h3 class="project-title">Mehab Makeup &amp; Accessories</h3>
+                  <p class="project-desc">A sophisticated beauty identity featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to express luxury and femininity.</p>
+                </div>
+                <div class="project-footer">
+                  <a href="project.html?project=mehab" class="project-link-btn" title="Open project link">
+                    <span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  </a>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- Project Card 2 -->
-          <!-- =============================================================
-               CUSTOMIZE HERE: PROJECT 2
-               ============================================================= -->
-          <article class="project-card">
-            <div class="project-thumb-box">
-              
-              <span class="project-thumb-placeholder-text">Project 2 Image Slot</span>
-              <span class="project-thumb-placeholder-sub">
-               <img class="project-real-img" src="assets\steve.png" alt="Project 2"> -->
-            </div>
-            <div class="project-body">
-              <div>
-                <span class="project-category">POSTER DESIGN & VISUAL ART</span>
-                <h3 class="project-title">Steve Jobs Tribute Poster</h3>
-                <p class="project-desc">A bold editorial poster celebrating Steve Jobs through dramatic composition, geometric shapes, monochromatic tones, and striking typography inspired by his innovative legacy</p>
+            <article class="project-card">
+              <div class="project-thumb-box">
+                <img class="project-real-img" src="assets/logo a.jpg" alt="AldenAire Perfume Brand Identity">
               </div>
-              <div class="project-footer">
-                <!-- CUSTOMIZE URL HERE -->
-                <a href="https://example.com/project-2" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Open project link">
-                  <span>View Project</span>
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
+              <div class="project-body">
+                <div>
+                  <span class="project-category">BRANDING &amp; LOGO DESIGN</span>
+                  <h3 class="project-title">AldenAire Perfume Brand Identity</h3>
+                  <p class="project-desc">A premium perfume branding project featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to communicate luxury and sophistication.</p>
+                </div>
+                <div class="project-footer">
+                  <a href="project.html?project=logo-02" class="project-link-btn" title="Open project link">
+                    <span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  </a>
+                </div>
               </div>
-            </div>
-          </article>
+            </article>
 
-          <!-- Project Card 3 -->
-          <!-- =============================================================
-               CUSTOMIZE HERE: PROJECT 3
-               ============================================================= -->
-          <article class="project-card">
-            <div class="project-thumb-box">
-              <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
-              </svg>
-              <span class="project-thumb-placeholder-text">
-              <span class="project-thumb-placeholder-sub">
-               <img class="project-real-img" src="assets\Coffee.png" alt="Project 3"> 
-            </div>
-            <div class="project-body">
-              <div>
-                <span class="project-category">Social Media Awareness & ADVERTISING</span>
-                <h3 class="project-title">Iced Coffee Social Campaign</h3>
-                <p class="project-desc">A vibrant promotional advertisement designed to capture attention through rich coffee imagery, dynamic typography, glowing effects, and a refreshing summer-inspired visual style</p>
+            <article class="project-card">
+              <div class="project-thumb-box">
+                <img class="project-real-img" src="assets/logo k.jpg" alt="Kayan Perfume Brand Identity">
               </div>
-              <div class="project-footer">
-                <!-- CUSTOMIZE URL HERE -->
-                <a href="https://example.com/project-3" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Open project link">
-                  <span>View Project</span>
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
+              <div class="project-body">
+                <div>
+                  <span class="project-category">BRANDING &amp; LOGO DESIGN</span>
+                  <h3 class="project-title">Kayan Perfume Brand Identity</h3>
+                  <p class="project-desc">A minimalist perfume branding project centered around an elegant Arabic logo, balanced typography, and a refined color palette that gives the brand a sophisticated and distinctive character.</p>
+                </div>
+                <div class="project-footer">
+                  <a href="project.html?project=logo-03" class="project-link-btn" title="Open project link">
+                    <span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg>
+                  </a>
+                </div>
               </div>
-            </div>
-          </article>
-            <!-- Project Card 3 -->
-
-           <!-- Project Card 4 -->
-          <!-- =============================================================
-               CUSTOMIZE HERE: PROJECT 4
-               ============================================================= -->
-          <article class="project-card">
-            <div class="project-thumb-box">
-              
-              <span class="project-thumb-placeholder-text">Project 4 Image Slot</span>
-              <span class="project-thumb-placeholder-sub">
-               <img class="project-real-img" src="assets\skinside.jpg" alt="Project 2"> 
-            </div>
-            <div class="project-body">
-              <div>
-                <span class="project-category">SOCIAL MEDIA AD DESIGN</span>
-                <h3 class="project-title">SKINSIDE Skincare Campaign</h3>
-                <p class="project-desc"> A modern skincare campaign designed to showcase the product through a clean, vibrant visual direction. The composition combines bold blue tones, soft lighting, product-focused imagery, and elegant Arabic typography to create a fresh and premium beauty aesthetic.</p>
-              </div>
-              <div class="project-footer">
-                <!-- CUSTOMIZE URL HERE -->
-                <a href="https://example.com/project-4" target="_blank" rel="noopener noreferrer" class="project-link-btn" title="Open project link">
-                  <span>View Project</span>
-                  <svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                  </svg>
-                </a>
-              </div>
-            </div>
-          </article>
-
-          <!-- Project Card 4 -->
-     <!-- Project Card 5 -->
-<article class="project-card">
-
-    <div class="project-thumb-box">
-        <img class="project-real-img"
-             src="assets\برجر.png"
-             alt="Project 5">
-    </div>
-
-    <div class="project-body">
-
-        <div>
-            <span class="project-category">
-                SOCIAL MEDIA Ad DESIGN
-            </span>
-
-            <h3 class="project-title">
-                Burger Promotional Campaign
-            </h3>
-
-            <p class="project-desc">
-                A bold and appetizing food advertisement featuring strong typography, warm tones, and a dynamic product-focused composition designed to capture attention and highlight the offer.
+            </article>
+          </div>
         </div>
 
-        <div class="project-footer">
-            <a href="#" class="project-link-btn">
-                <span>View Project</span>
-            </a>
+        <!-- OTHER VISUAL WORK -->
+        <div class="project-group">
+          <div class="project-group-heading">
+            <span class="project-group-kicker">02</span>
+            <h3>Other Visual Work</h3>
+          </div>
+          <div class="projects-grid">
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets/steve.png" alt="Steve Jobs Tribute Poster"></div>
+              <div class="project-body">
+                <div>
+                  <span class="project-category">POSTER DESIGN &amp; VISUAL ART</span>
+                  <h3 class="project-title">Steve Jobs Tribute Poster</h3>
+                  <p class="project-desc">A bold editorial poster celebrating Steve Jobs through dramatic composition, geometric shapes, monochromatic tones, and striking typography inspired by his innovative legacy.</p>
+                </div>
+                <div class="project-footer"><a href="project.html?project=steve-jobs" class="project-link-btn" title="Open project link"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 002 2v10a2 2 0 00-2 2H5a2 2 0 00-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2" /></svg></a></div>
+              </div>
+            </article>
+          </div>
         </div>
 
-    </div>
+        <!-- SOCIAL MEDIA POSTS & ADVERTISING -->
+        <div class="project-group">
+          <div class="project-group-heading">
+            <span class="project-group-kicker">03</span>
+            <h3>Social Media Posts &amp; Advertising</h3>
+          </div>
+          <div class="projects-grid">
 
-</article>
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets\كوفي.png" alt="Iced Coffee Social Campaign"></div>
+              <div class="project-body"><div><span class="project-category">SOCIAL MEDIA AWARENESS &amp; ADVERTISING</span><h3 class="project-title">Iced Coffee Social Campaign</h3><p class="project-desc">A vibrant promotional advertisement designed to capture attention through rich coffee imagery, dynamic typography, glowing effects, and a refreshing summer-inspired visual style.</p></div><div class="project-footer"><a href="project.html?project=iced-coffee" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-<!-- Project Card 6 -->
-<article class="project-card">
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets/skinside.jpg" alt="SKINSIDE Skincare Campaign"></div>
+              <div class="project-body"><div><span class="project-category">SOCIAL MEDIA AD DESIGN</span><h3 class="project-title">SKINSIDE Skincare Campaign</h3><p class="project-desc">A modern skincare campaign designed to showcase the product through a clean, vibrant visual direction with bold blue tones, soft lighting, product-focused imagery, and elegant Arabic typography.</p></div><div class="project-footer"><a href="project.html?project=skinside" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-    <div class="project-thumb-box">
-        <img class="project-real-img"
-             src="assets\ايسكريم.png"
-             alt="Project 6">
-    </div>
+            <!-- ONE BURGER PROJECT ONLY -->
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets/برجر توب.png" alt="Burger Full Promotional Campaign"></div>
+              <div class="project-body"><div><span class="project-category">SOCIAL MEDIA AD DESIGN</span><h3 class="project-title">Burger Full Promotional Campaign</h3><p class="project-desc">A full burger promotion campaign featuring the complete set of social posts, appetizing product visuals, and strong promotional compositions.</p></div><div class="project-footer"><a href="project.html?project=burger" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-    <div class="project-body">
+            <!-- ONE ICE-CREAM PROJECT ONLY -->
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets\ايسكريم.png" alt="FEROZ Ice Cream Flavor Series"></div>
+              <div class="project-body"><div><span class="project-category">SOCIAL MEDIA POST DESIGN</span><h3 class="project-title">FEROZ Ice Cream Flavor Series</h3><p class="project-desc">A colorful FEROZ ice cream campaign featuring the main artwork and a full set of flavor posts in one project.</p></div><div class="project-footer"><a href="project.html?project=ice-cream" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-        <div>
-            <span class="project-category">
-                SOCIAL MEDIA Ad DESIGN
-            </span>
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets\luce 1.png" alt="Luce Vitamin C Serum Campaign"></div>
+              <div class="project-body"><div><span class="project-category">PRODUCT ADVERTISEMENT</span><h3 class="project-title">Luce Vitamin C Serum Campaign</h3><p class="project-desc">A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.</p></div><div class="project-footer"><a href="project.html?project=luce" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-            <h3 class="project-title">
-               Strawberry Ice Cream Campaign
-            </h3>
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets/توصيل توب.png" alt="Delivery Service Campaign"></div>
+              <div class="project-body"><div><span class="project-category">SOCIAL MEDIA POST DESIGN</span><h3 class="project-title">Delivery Service Campaign</h3><p class="project-desc">A social media campaign built around delivery-focused promotional posts, clear messaging, and a consistent visual system.</p></div><div class="project-footer"><a href="project.html?project=social-02" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-            <p class="project-desc">
-                A vibrant food advertisement combining bold typography, rich strawberry tones, and dynamic product composition to create a fresh and appetizing visual experience.
-            </p>
-        </div>
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets/عقاري توب.png" alt="Real Estate Social Campaign"></div>
+              <div class="project-body"><div><span class="project-category">SOCIAL MEDIA POST DESIGN</span><h3 class="project-title">Real Estate Social Campaign</h3><p class="project-desc">A real estate social media campaign combining property-focused visuals, promotional layouts, and a consistent advertising direction.</p></div><div class="project-footer"><a href="project.html?project=social-03" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 002 2v10a2 2 0 00-2 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-        <div class="project-footer">
-            <a href="#" class="project-link-btn">
-                <span>View Project</span>
-            </a>
-        </div>
+            <article class="project-card">
+              <div class="project-thumb-box"><img class="project-real-img" src="assets/اسنان 2.png" alt="Dental Clinic Social Media Campaign"></div>
+              <div class="project-body"><div><span class="project-category">SOCIAL MEDIA POST DESIGN</span><h3 class="project-title">Dental Clinic Social Media Campaign</h3><p class="project-desc">A clean and premium dental clinic campaign using fresh teal tones, warm lifestyle imagery, strong Arabic typography, and educational promotional compositions designed for social media.</p></div><div class="project-footer"><a href="project.html?project=dental" class="project-link-btn"><span>View Project</span><svg width="16" height="16" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg></a></div></div>
+            </article>
 
-    </div>
-
-</article>
-
-<!-- Project Card 7 -->
-<article class="project-card">
-
-    <div class="project-thumb-box">
-        <img class="project-real-img"
-             src="assets\luce 2.png"
-             alt="Project 6">
-    </div>
-
-    <div class="project-body">
-
-        <div>
-            <span class="project-category">
-               PRODUCT ADVERTISEMENT
-            </span>
-
-            <h3 class="project-title">
-               Luce Vitamin C Serum Campaign
-            </h3>
-
-            <p class="project-desc">
-               A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.
-            </p>
-        </div>
-
-        <div class="project-footer">
-            <a href="#" class="project-link-btn">
-                <span>View Project</span>
-            </a>
-        </div>
-
-    </div>
-
-</article>
-
-    </div> <!-- projects-grid -->
-
-  </div> <!-- container -->
-
-</section> <!-- projects -->
-
+          </div>
         </div>
 
       </div>
     </section>
-    
 
     <!-- ==========================================================================
          SECTION 6: SERVICES SECTION (6 Rounded-Rectangle Cards)
@@ -3088,15 +3079,15 @@
 
     const translations = {
       'Home':'الرئيسية','About':'عني','Experience':'خبرتي','Skills':'مهاراتي','Projects':'مشاريعي','Services':'خدماتي','Testimonials':'آراء العملاء','Contact':'تواصلي معايا',
-      'Hello, I’m':'أهلاً، أنا','I create as a':'بشتغل كمصممة','Available for Freelance & New Projects':'متاحة للفريلانس والمشاريع الجديدة','2+ Yrs Experience':'عندي أكتر من سنتين خبرة','5.0 Rating':'تقييم 5.0',
+      'Hello, I’m':'أهلاً، أنا','I create as a':'بشتغل كمصممة','Available for Freelance & New Projects':'متاحة للفريلانس والمشاريع الجديدة','More than 3 Years Experience':'عندي أكتر من 3 سنين خبرة','5.0 Rating':'تقييم 5.0',
       'Portrait Placeholder':'صورتي الشخصية','Replace with Roaa Waleed\'s high-res photo (Recommended: 800x1000px)':'حطي صورة واضحة وعالية الجودة لروعة وليد (يفضل مقاس 800×1000 بكسل)',
-      'Passionate visual creator blending refined graphic aesthetics with high-retention video editing. With two years of hands-on experience in logo design, promotional campaigns, and educational visual storytelling, I transform brand ideas into compelling, high-converting digital experiences.':'بحب أشتغل على التصميم والمونتاج، وبحاول دايمًا أخلي كل شغلانة ليها شكل مميز وواضح. عندي خبرة أكتر من سنتين في تصميم اللوجوهات والحملات الإعلانية والمحتوى البصري، وبحوّل فكرة البراند لتصميم يشد الانتباه ويكون ليه تأثير.',
+      'Passionate visual creator blending refined graphic aesthetics with high-retention video editing. With more than three years of hands-on experience in logo design, promotional campaigns, and educational visual storytelling, I transform brand ideas into compelling, high-converting digital experiences.':'بحب أشتغل على التصميم والمونتاج، وبحاول دايمًا أخلي كل شغلانة ليها شكل مميز وواضح. عندي أكتر من 3 سنين خبرة في تصميم اللوجوهات والحملات الإعلانية والمحتوى البصري، وبحوّل فكرة البراند لتصميم يشد الانتباه ويكون ليه تأثير.',
       'Chat on WhatsApp':'كلميني على واتساب','View Projects':'شوفي مشاريعي',
       'About Me':'عني','Design Craft & Visual Philosophy':'ستايل التصميم ورؤيتي البصرية','A blend of structured artistic vision and rhythmic motion storytelling.':'بحب أخلط بين التصميم المرتب والحركة والإيقاع عشان أوصل الفكرة بشكل حلو وواضح.',
-      'With two years dedicated to visual identity development and dynamic video post-production, I specialize in shaping memorable brand personalities and high-retention social content. My workflow bridges conceptual logo systems with rhythmically synchronized video edits that capture attention and drive engagement. Dedicated to precision, typography balance, and modern pacing, I partner with creators and businesses to transform their vision into impactful visual stories.':'بقالي أكتر من سنتين شغالة على الهويات البصرية ومونتاج الفيديو. شغلي بيركز على اللوجوهات، محتوى السوشيال ميديا، والحملات الإعلانية، وبحب أخلي التصميم والمونتاج ماشيين مع بعض بشكل يخلي الفكرة توصل بسهولة. بهتم بالتفاصيل، اختيار الخطوط، والألوان، والإيقاع عشان أطلع شغل شكله مرتب واحترافي.',
+      'With more than three years dedicated to visual identity development and dynamic video post-production, I specialize in shaping memorable brand personalities and high-retention social content. My workflow bridges conceptual logo systems with rhythmically synchronized video edits that capture attention and drive engagement. Dedicated to precision, typography balance, and modern pacing, I partner with creators and businesses to transform their vision into impactful visual stories.':'بقالي أكتر من 3 سنين شغالة على الهويات البصرية ومونتاج الفيديو. شغلي بيركز على اللوجوهات، محتوى السوشيال ميديا، والحملات الإعلانية، وبحب أخلي التصميم والمونتاج ماشيين مع بعض بشكل يخلي الفكرة توصل بسهولة. بهتم بالتفاصيل، اختيار الخطوط، والألوان، والإيقاع عشان أطلع شغل شكله مرتب واحترافي.',
       'Years Experience':'سنين خبرة','Projects Completed':'مشروع مكتمل','Client Dedication':'بهمني رضا العميل','About Visual Placeholder':'مكان لصورتك','This slot is left intentionally open for your custom studio photo, moodboard, or workspace visual.':'المكان ده ينفع تحطي فيه صورة من شغلك، الاستوديو، الـmoodboard أو أي صورة مناسبة للبورتفوليو.',
-      'Career Milestones':'محطاتي في الشغل','Two Years of Creative Experience':'أكتر من سنتين خبرة في المجال','Dedicated work in logo design, promotional campaigns, and video editing.':'اشتغلت على لوجوهات، حملات إعلانية، ومونتاج فيديو لمشاريع مختلفة.',
-      'Logo Design & Brand Identity Specialist':'متخصصة في تصميم اللوجوهات والهوية البصرية','2 Years Experience':'خبرة أكتر من سنتين','Developed vector brand marks, typography guidelines, and educational visual kits. Crafted distinct visual identities for educational institutions, product launches, community awareness initiatives, and digital businesses.':'صممت لوجوهات وهويات بصرية كاملة، واشتغلت على الخطوط والـvisuals لمؤسسات تعليمية، إطلاق منتجات، حملات توعية، ومشاريع أونلاين.',
+      'Career Milestones':'محطاتي في الشغل','More Than 3 Years of Creative Experience':'أكتر من 3 سنين خبرة في المجال','Dedicated work in logo design, promotional campaigns, and video editing.':'اشتغلت على لوجوهات، حملات إعلانية، ومونتاج فيديو لمشاريع مختلفة.',
+      'Logo Design & Brand Identity Specialist':'متخصصة في تصميم اللوجوهات والهوية البصرية','More than 3 Years Experience':'أكتر من 3 سنين خبرة','Developed vector brand marks, typography guidelines, and educational visual kits. Crafted distinct visual identities for educational institutions, product launches, community awareness initiatives, and digital businesses.':'صممت لوجوهات وهويات بصرية كاملة، واشتغلت على الخطوط والـvisuals لمؤسسات تعليمية، إطلاق منتجات، حملات توعية، ومشاريع أونلاين.',
       'Logo Design':'تصميم اللوجوهات','Educational Branding':'Branding تعليمي','Brand Guidelines':'Guidelines للهوية البصرية','Awareness Campaigns':'حملات توعية','Vector Graphics':'Vector Graphics',
       'Video Editor & Creative Motion Designer':'محررة فيديو ومصممة موشن جرافيك','Produced high-engagement video content for product promotion, educational explainers, social media reels (TikTok/Instagram), and awareness videos. Specialized in sound synchronization, color correction, and dynamic graphic overlays.':'بعمل مونتاج لفيديوهات الإعلانات، الريلز، المحتوى التعليمي وفيديوهات التوعية. وبركز على مزامنة الصوت، الألوان، والـmotion عشان الفيديو يطلع حيوي ومشدود.',
       'Product Promo Videos':'فيديوهات إعلانية للمنتجات','Social Media Reels':'ريلز للسوشيال ميديا','Sound Sync':'مزامنة الصوت','Color Grading':'تصحيح الألوان والـColor Grading','Dynamic Subtitles':'Subtitles متحركة',
@@ -3108,13 +3099,34 @@
       'Color Grading & Tone':'Color Grading والألوان','Cinematic color grading, lighting enhancement, white balance matching, and atmospheric mood creation.':'بظبط الألوان والإضاءة والـwhite balance عشان الفيديو يطلع بالمود والشكل اللي مناسب للفكرة.',
       'Sound Design & Sync':'تصميم الصوت والمزامنة','Audio cleanup, sound effects layering (SFX), beat synchronization, and voiceover equalization.':'بظبط الصوت، أضيف المؤثرات، وأخلي الإيقاع والـvoice-over راكبين صح على الفيديو.',
       'Featured Work':'من شغلي','Selected Projects':'مشاريع اخترتها من شغلي','A showcase of brand identity systems and promotional motion edits.':'هنا مجموعة من اللوجوهات والهويات البصرية وأعمال الموشن والمونتاج اللي اشتغلت عليها.',
+      'A showcase of brand identities, visual design, social media campaigns, and advertising work.':'هنا مجموعة من اللوجوهات والهويات البصرية والتصميمات الخاصة بالسوشيال ميديا والإعلانات.',
+      'Logos & Brand Identity':'اللوجوهات والهوية البصرية','Other Visual Work':'أعمال بصرية متنوعة','Social Media Posts & Advertising':'بوستات وإعلانات السوشيال ميديا','01':'٠١','02':'٠٢','03':'٠٣',
+      'SOCIAL MEDIA POST DESIGN':'تصميم بوستات للسوشيال ميديا',
+      'AldenAire Perfume Brand Identity':'هوية بصرية لبراند AldenAire للعطور','Kayan Perfume Brand Identity':'هوية بصرية لبراند كيان للعطور',
+      'A premium perfume branding project featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to communicate luxury and sophistication.':'مشروع براند عطور فاخر، فيه مونوغرام مميز وخطوط أنيقة وألوان عنابي وذهبي تدي إحساس بالفخامة والرقي.','A minimalist perfume branding project centered around an elegant Arabic logo, balanced typography, and a refined color palette that gives the brand a sophisticated and distinctive character.':'مشروع هوية بصرية لبراند عطور بيعتمد على لوجو عربي أنيق وتايبوجرافي متوازنة وألوان هادية تدي البراند شكل راقي ومميز.',
+      'Burger Full Promotional Campaign':'حملة برجر ترويجية كاملة','A full burger promotion campaign featuring the complete set of social posts, appetizing product visuals, and strong promotional compositions.':'حملة برجر كاملة فيها كل البوستات، وصور الأكل بشكل شهي، وتصميمات ترويجية قوية تلفت الانتباه.',
+      'FEROZ Ice Cream Flavor Series':'سلسلة نكهات آيس كريم FEROZ','A colorful FEROZ ice cream campaign featuring the main artwork and a full set of flavor posts in one project.':'حملة آيس كريم FEROZ بألوان مبهجة، فيها التصميم الأساسي وكل بوستات النكهات متجمعة في مشروع واحد.',
+      'Luce Vitamin C Serum Campaign':'حملة سيروم فيتامين C من Luce','A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.':'إعلان شيك وفاخر للعناية بالبشرة بطابع أخضر متناسق، فيه تركيز على المنتج وصور لايف ستايل وعناصر ترويجية بسيطة.',
+      'Delivery Service Campaign':'حملة خدمة التوصيل','A social media campaign built around delivery-focused promotional posts, clear messaging, and a consistent visual system.':'حملة سوشيال ميديا لخدمة التوصيل، فيها بوستات ترويجية واضحة وستايل بصري متناسق.',
+      'Real Estate Social Campaign':'حملة عقارية للسوشيال ميديا','A real estate social media campaign combining property-focused visuals, promotional layouts, and a consistent advertising direction.':'حملة عقارية للسوشيال ميديا بتجمع بين صور العقارات، وتصميمات ترويجية، وستايل إعلاني موحّد.',
+      'Dental Clinic Social Media Campaign':'حملة سوشيال ميديا لعيادة أسنان','A clean and premium dental clinic campaign using fresh teal tones, warm lifestyle imagery, strong Arabic typography, and educational promotional compositions designed for social media.':'حملة سوشيال ميديا لعيادة أسنان بشكل نضيف وراقي، بألوان تركواز هادية، وصور لايف ستايل، وخط عربي واضح، وتصميمات توعوية وترويجية للسوشيال ميديا.',
+      'Social Media Post Project 01':'مشروع بوست سوشيال ميديا 01','Social Media Post Project 02':'مشروع بوست سوشيال ميديا 02','Social Media Post Project 03':'مشروع بوست سوشيال ميديا 03','Social Media Post Project 04':'مشروع بوست سوشيال ميديا 04','Social Media Post Project 05':'مشروع بوست سوشيال ميديا 05',
+      'A dedicated logo showcase slot ready for a new brand identity project. Add the logo artwork and the related visual identity images to this project.':'مكان مخصص للوجو جديد وهوية بصرية. ضيفي صورة اللوجو وباقي صور الهوية المرتبطة بالمشروع.',
+      'A dedicated logo showcase slot ready for another brand identity project. Add the logo artwork and the related visual identity images to this project.':'مكان مخصص للوجو جديد تاني وهوية بصرية. ضيفي صورة اللوجو وباقي صور الهوية المرتبطة بالمشروع.',
+      'A new social media design showcase slot. Add the campaign images for this project and they will appear on its dedicated project page.':'مكان مخصص لمشروع سوشيال ميديا جديد. ضيفي صور الحملة المرتبطة بالمشروع وهتظهر في صفحته الخاصة.',
+      'Image Slot':'مكان للصورة','Replace with your project image':'استبدليها بصورة المشروع',
       'BRANDING & LOGO DESIGN':'Branding وتصميم اللوجوهات','Mehab Makeup & Accessories':'ميهاب ميك أب وإكسسوارات','A sophisticated beauty identity featuring a refined monogram, elegant typography, and a rich burgundy and gold palette designed to express luxury and femininity.':'هوية بصرية لمجال الجمال، فيها مونوغرام بسيط وخطوط شيك وألوان عنابي وذهبي عشان تدي إحساس فاخر.',
       'POSTER DESIGN & VISUAL ART':'تصميم بوستر وفن بصري','Steve Jobs Tribute Poster':'بوستر تكريمي لستيف جوبز','A bold editorial poster celebrating Steve Jobs through dramatic composition, geometric shapes, monochromatic tones, and striking typography inspired by his innovative legacy':'بوستر عن ستيف جوبز بتكوين جريء وأشكال هندسية وألوان أبيض وأسود وخطوط مستوحاة من أسلوبه المميز.',
       'Social Media Awareness & ADVERTISING':'حملات وإعلانات السوشيال ميديا','Iced Coffee Social Campaign':'حملة قهوة مثلجة للسوشيال ميديا','A vibrant promotional advertisement designed to capture attention through rich coffee imagery, dynamic typography, glowing effects, and a refreshing summer-inspired visual style':'إعلان لقهوة مثلجة معمول بألوان دافية، تايبوجرافي واضحة، وإضاءة وحركة تخلي التصميم شكله منعش ويشد العين.',
       'SOCIAL MEDIA AD DESIGN':'تصميم إعلانات للسوشيال ميديا','SKINSIDE Skincare Campaign':'حملة SKINSIDE للعناية بالبشرة','A modern skincare campaign designed to showcase the product through a clean, vibrant visual direction. The composition combines bold blue tones, soft lighting, product-focused imagery, and elegant Arabic typography to create a fresh and premium beauty aesthetic.':'حملة للعناية بالبشرة بألوان أزرق وإضاءة ناعمة، مع تركيز على المنتج وخط عربي شيك يخلي الشكل منعش وراقي.',
       'SOCIAL MEDIA Ad DESIGN':'تصميم إعلانات للسوشيال ميديا','Burger Promotional Campaign':'حملة إعلان للبرجر','A bold and appetizing food advertisement featuring strong typography, warm tones, and a dynamic product-focused composition designed to capture attention and highlight the offer.':'إعلان برجر بألوان دافية وخطوط قوية وتركيبة تركز على الأكل والعرض عشان يشد الانتباه.',
       'Strawberry Ice Cream Campaign':'حملة آيس كريم بالفراولة','A vibrant food advertisement combining bold typography, rich strawberry tones, and dynamic product composition to create a fresh and appetizing visual experience.':'إعلان آيس كريم بالفراولة بألوان فراولة واضحة وخطوط جريئة وتكوين يخلي المنتج باين وشهي.',
-      'PRODUCT ADVERTISEMENT':'إعلان منتج','Luce Vitamin C Serum Campaign':'حملة سيروم فيتامين C من Luce','A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.':'إعلان عصري وفاخر للعناية بالبشرة يعتمد على طابع أخضر أحادي اللون، ويجمع بين صور المنتج والتصوير بأسلوب الحياة والعناصر الترويجية النظيفة.',
+      'PRODUCT ADVERTISEMENT':'إعلان منتج','Luce Vitamin C Serum Campaign':'حملة سيروم فيتامين C من Luce',
+      'FEROZ Ice Cream Flavor Series':'سلسلة نكهات آيس كريم FEROZ',
+      'A colorful FEROZ ice cream campaign built around multiple flavor posts and a consistent product-focused social media visual direction.':'حملة آيس كريم FEROZ تضم مجموعة نكهات وتصميمات سوشيال ميديا متناسقة تركّز على المنتج وتنوع النكهات.',
+      'Dental Clinic Social Media Campaign':'حملة سوشيال ميديا لعيادة أسنان',
+      'A clean and premium dental clinic campaign using fresh teal tones, warm lifestyle imagery, strong Arabic typography, and educational promotional compositions designed for social media.':'حملة سوشيال ميديا لعيادة أسنان بألوان تركواز منعشة وصور لايف ستايل وخط عربي واضح وتكوينات إعلانية وتعليمية مناسبة للسوشيال ميديا.',
+      'FEROZ Flavor Series':'سلسلة نكهات FEROZ','Delivery Service Campaign':'حملة خدمة التوصيل','Real Estate Social Campaign':'حملة عقارية للسوشيال ميديا','Burger Full Promotional Campaign':'حملة برجر ترويجية كاملة','FEROZ Ice Cream Brand Post':'بوست FEROZ للآيس كريم','A fresh and premium skincare advertisement built around a monochromatic green aesthetic, combining product-focused visuals, lifestyle photography, and clean promotional elements.':'إعلان عصري وفاخر للعناية بالبشرة يعتمد على طابع أخضر أحادي اللون، ويجمع بين صور المنتج والتصوير بأسلوب الحياة والعناصر الترويجية النظيفة.',
       'View Project':'عرض المشروع','Project 2 Image Slot':'مكان لصورة المشروع 2','Project 4 Image Slot':'مكان لصورة المشروع 4',
       'Services & Tooling':'خدماتي والأدوات','Specialized Creative Services':'خدمات بقدمها','Tailored creative execution using industry-standard production software.':'بنفذ كل مشروع حسب احتياجه وباستخدم برامج التصميم والمونتاج المناسبة للشغل.',
       'Creative Strategy':'فكرة واستراتيجية التصميم','Graphic Design':'Graphic Design','Complete visual design solutions including brand logos, print media, social assets, promotional banners, and marketing layout systems.':'حلول تصميم بصري متكاملة تشمل شعارات العلامات التجارية ومواد الطباعة ومحتوى السوشيال ميديا والبانرات الترويجية وأنظمة التخطيط التسويقي.',
